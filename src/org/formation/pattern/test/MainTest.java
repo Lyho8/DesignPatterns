@@ -3,6 +3,7 @@ package org.formation.pattern.test;
 import org.formation.pattern.factory.*;
 import org.formation.pattern.singleton.*;
 import org.formation.pattern.templatemethod.*;
+import org.formation.pattern.visitor.*;
 import org.formation.pattern.abstractfactory.*;
 import org.formation.pattern.builder.ComplexObject;
 import org.formation.pattern.strategy.*;
@@ -104,6 +105,15 @@ public class MainTest {
 		ds.addObserver(screen);
 		
 		ds.setData("42");
+		
+		Fruit f = new Fruit(2.0,5.0,"Banane");
+		Book b = new Book("The Emperor's New Clothes", 20);
+		
+		ConcreteVisitor cv = new ConcreteVisitor();
+		
+		System.out.println(f.accept(cv));
+		System.out.println(b.accept(cv));
+		
 		
 	}
 
