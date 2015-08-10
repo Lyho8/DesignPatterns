@@ -1,5 +1,6 @@
 package org.formation.pattern.test;
 
+import java.util.*;
 import org.formation.pattern.factory.*;
 import org.formation.pattern.singleton.*;
 import org.formation.pattern.templatemethod.*;
@@ -9,6 +10,7 @@ import org.formation.pattern.builder.ComplexObject;
 import org.formation.pattern.strategy.*;
 import org.formation.pattern.composite.*;
 import org.formation.pattern.observer.*;
+import org.formation.pattern.iterator.*;
 
 import models.*;
 
@@ -113,6 +115,25 @@ public class MainTest {
 		
 		System.out.println(f.accept(cv));
 		System.out.println(b.accept(cv));
+		
+		Channel ch = new Channel("tf1", ChannelTypeEnum.GENERAL);
+		Channel ch1 = new Channel("tf2", ChannelTypeEnum.NEWS);
+		Channel ch2 = new Channel("tf3", ChannelTypeEnum.MUSIC);
+		Channel ch3 = new Channel("tf4", ChannelTypeEnum.GENERAL);
+		Channel ch4 = new Channel("tf5", ChannelTypeEnum.KIDS);
+		
+		ChannelCollectionImpl cci = new ChannelCollectionImpl();
+		
+		cci.addChannel(ch);
+		cci.addChannel(ch1);
+		cci.addChannel(ch2);
+		cci.addChannel(ch3);
+		cci.addChannel(ch4);
+		
+		ChannelIterator iter = cci.iterator(ChannelTypeEnum.NEWS);
+		while(iter.hasNext()){
+			System.out.println(iter.next());
+		}
 		
 		
 	}
