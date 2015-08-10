@@ -1,0 +1,10 @@
+package org.formation.pattern.observer;
+
+public interface Subject {
+	public void register(Observer o);
+	public void unregister(Observer o);
+	
+	public void notifyObservers();
+	
+	//public void getUpdate();
+}
