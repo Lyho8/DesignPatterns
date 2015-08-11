@@ -1,6 +1,5 @@
 package org.formation.pattern.test;
 
-import java.util.*;
 import org.formation.pattern.factory.*;
 import org.formation.pattern.singleton.*;
 import org.formation.pattern.templatemethod.*;
